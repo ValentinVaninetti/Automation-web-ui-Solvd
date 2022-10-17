@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public abstract class BaseTest {
     private MyDriver myDriver;
