@@ -21,6 +21,6 @@ public class WebLocators {
     public static final String DROPDOWN_USER_MORE_IOS = "//a[@href=\"https://reddit.onelink.me/MRHZ/b3d845e\"]";
     public static final String DROPDOWN_USER_MORE_ANDROID = "//a[@href=\"https://reddit.onelink.me/MRHZ/4c212f61\"]";
 
-
+    public static final String BUTTON_LOGOUT = "//div[@role=\"menu\"]/div/button[5]";
 
 }

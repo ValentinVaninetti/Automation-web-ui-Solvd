@@ -8,13 +8,13 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 public class LoginComponentTest extends BaseTest {
 
-    @Test
+    @Test(priority = 1)
     public void itTestThatTheLoginComponentOpens(){
         HomePage homePage = new HomePage(MyDriver.getWebDriver());
         this.navigateTo(Constants.REDDIT_HOME_PAGE);
         homePage.clickOnLogin();
     }
-    @Test(testName = "itTestThatFillingLoginFieldsContinueWithFlow")
+    @Test(priority = 2,testName = "itTestThatFillingLoginFieldsContinueWithFlow")
     @Parameters({"username", "password"})
     public void itTestThatFillingLoginFieldsContinueWithFlow(String username, String password) throws InterruptedException {
         HomePage homePage = new HomePage(MyDriver.getWebDriver());
@@ -24,5 +24,14 @@ public class LoginComponentTest extends BaseTest {
         loginComponent.setUsername(username);
         loginComponent.setPassword(password);
         loginComponent.clickLoginSession();
+    }
+    @Test(priority = 3)
+    public void itTestIsLogout() throws InterruptedException,Exception {
+        HomePage homePage = new HomePage(MyDriver.getWebDriver());
+        this.navigateTo(Constants.REDDIT_HOME_PAGE);
+        LoginComponent loginComponent = new LoginComponent(MyDriver.getWebDriver());
+        loginComponent.clickRightAccountMenu();
+        MyDriver.getWebDriver().switchTo().activeElement();
+        loginComponent.clickLogoutButton();
     }
 }

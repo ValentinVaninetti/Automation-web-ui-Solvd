@@ -10,6 +10,7 @@
                 <methods>
                     <include name="itTestThatFillingLoginFieldsContinueWithFlow" />
                     <exclude name="itTestThatTheLoginComponentOpens"/>
+                    <include name="itTestIsLogout"/>
                 </methods>
             </class>
         </classes>

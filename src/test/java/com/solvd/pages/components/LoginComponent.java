@@ -22,5 +22,11 @@ public class LoginComponent extends BasePage {
     public void clickLoginSession(){
         webDriver.findElement(By.cssSelector(WebLocators.BUTTON_LOGIN_SESSION)).click();
     }
+    public void clickRightAccountMenu(){
+        webDriver.findElement(By.id(WebLocators.BUTTON_DROPDOWN_USER)).click();
+    }
+    public void clickLogoutButton(){
+        webDriver.findElement(By.xpath(WebLocators.BUTTON_LOGOUT)).click();
+    }
 
 }
