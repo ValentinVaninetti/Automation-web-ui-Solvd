@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="User Dropdown" annotations="JDK" parallel="false">
+
+    <test name="itTestThatTheNavbarIsDisplayed">
+        <classes>
+            <class name="com.solvd.tests.BackgroundThemeTest">
+                <methods>
+                    <include name="itTestThatTheNavbarIsDisplayed"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="itTestThatDarkThemeWorks">
+        <classes>
+            <class name="com.solvd.tests.BackgroundThemeTest">
+                <methods>
+                    <include name="itTestThatDarkThemeWorks"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="itTestThatRegisterOrLoginButtonWorks">
+        <classes>
+            <class name="com.solvd.tests.BackgroundThemeTest">
+                <methods>
+                    <include name="itTestThatRegisterOrLoginButtonWorks"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
