@@ -47,17 +47,13 @@ public class NavbarComponent extends BasePage {
         webDriver.findElement(By.xpath(WebLocators.DROPDOWN_USER_MORE_ANDROID)).click();
     }
 
-    public boolean checkPageTitle(String title){
-        switch (title){
-            case "Reddit on the App Store", "Reddit - Aplicaciones en Google Play", "Reddit - Explora lo que quieras" -> {
-                System.out.println(title);
-                return true;
-            }
-            default -> {
-                System.out.println(title);
-                return false;
-            }
+   public boolean checkPageTitle(String title){
+        if(title =="Reddit on the App Store" ){
+            System.out.println(title);
+            return true;
         }
+        return false;
+
     }
 
     public CoinsPage clickCoinsButton(){

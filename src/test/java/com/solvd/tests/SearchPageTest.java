@@ -2,9 +2,6 @@ package com.solvd.tests;
 
 import com.solvd.pages.SearchPage;
 import com.solvd.utils.MyDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SearchPageTest extends BaseTest{

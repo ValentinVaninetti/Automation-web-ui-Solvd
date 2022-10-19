@@ -2,13 +2,18 @@ package com.solvd.pages;
 
 import com.solvd.pages.components.LoginComponent;
 import com.solvd.pages.components.NavbarComponent;
+import com.solvd.pages.components.PostComponent;
 import com.solvd.utils.Constants;
 import com.solvd.utils.MyDriver;
 import com.solvd.utils.WebLocators;
-import static com.solvd.utils.WebLocators.CSS_SEARCH;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+
+
+import static com.solvd.utils.WebLocators.*;
+
 public class HomePage extends BasePage{
 
     public HomePage(WebDriver wDriver) {
@@ -49,6 +54,12 @@ public class HomePage extends BasePage{
     }
     public void navigateToHome(){
         webDriver.get(Constants.REDDIT_HOME_PAGE);
+    }
+
+    public PostComponent clickFirstPost(){
+        String button_first_post = String.format(TITLE_FIRST_POST,"1","2","2","2","3","1","5","1","3","2","1");
+        webDriver.findElement(By.xpath(button_first_post)).click();
+        return new PostComponent(webDriver);
     }
 
 }
