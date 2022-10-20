@@ -14,7 +14,7 @@ public class WebLocators {
     public static final String DROPDOWN_USER_MENU = "//div[@role=\"menu\"]";
     public static final String BUTTON_DROPDOWN_USER_SETTINGS = "//div[@role=\"menu\"]/div/button[2]";
     public static final String BUTTON_SETTINGS_DARK_THEME = "//button[@role=\"switch\"]";
-
+    public static final String BUTTON_SETTINGS_DARK_THEME2 = "//div[@role=\"menu\"]/button[1]";
     public static final String CSS_BACKGROUND = "//body/div/div[1]";
     public static final String DROPDOWN_USER_REGISTER_OR_LOGIN = "//div[@role=\"menu\"]/div/button[5]";
     public static final String DROPDOWN_USER_MORE_BUTTON = "//div[@role=\"menu\"]/div/button[3]";

@@ -8,6 +8,12 @@ import com.solvd.utils.WebLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NavbarComponent extends BasePage {
 
@@ -20,11 +26,17 @@ public class NavbarComponent extends BasePage {
     }
 
     public void clickSettingsButton() {
-        webDriver.findElement(By.xpath(WebLocators.BUTTON_DROPDOWN_USER_SETTINGS)).click();
+        WebElement settingsBtn = webDriver.findElement(By.xpath(WebLocators.BUTTON_DROPDOWN_USER_SETTINGS));
+        if (settingsBtn.isDisplayed()){
+            settingsBtn.click();
+        }
     }
 
     public void clickDarkThemeButton() {
-        webDriver.findElement(By.xpath(WebLocators.BUTTON_SETTINGS_DARK_THEME)).click();
+        WebElement darkTheme = webDriver.findElement(By.xpath("//button[@role=\"switch\"]"));
+        if(darkTheme.isDisplayed()){
+            darkTheme.click();
+        }
     }
 
     public void scrollDownNavbarMenu() {
@@ -48,7 +60,7 @@ public class NavbarComponent extends BasePage {
     }
 
    public boolean checkPageTitle(String title){
-        if(title =="Reddit on the App Store" ){
+        if(title.equals("Reddit on the App Store")){
             System.out.println(title);
             return true;
         }

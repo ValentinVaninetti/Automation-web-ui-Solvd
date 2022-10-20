@@ -10,6 +10,7 @@ import com.solvd.utils.WebLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 
 import static com.solvd.utils.WebLocators.*;
@@ -29,12 +30,15 @@ public class HomePage extends BasePage{
         return new LoginComponent(webDriver);
     }
     public NavbarComponent clickOnUserDropdown() {
-        webDriver.findElement(By.className("header-user-dropdown")).click();
+        if (webDriver.findElement(By.className("header-user-dropdown")).isDisplayed()){
+            webDriver.findElement(By.className("header-user-dropdown")).click();
+        }
         return new NavbarComponent(webDriver);
     }
 
     public String getBodyBackgroundColor(){
-        return webDriver.findElement(By.xpath(WebLocators.CSS_BACKGROUND)).getCssValue("background-color");
+        return webDriver.findElement(By.xpath(WebLocators.CSS_BACKGROUND))
+                .getCssValue("background-color");
     }
 
     public boolean isRegisterOrLoginMenuDisplayed(){

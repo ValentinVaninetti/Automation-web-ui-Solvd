@@ -8,36 +8,35 @@ import com.solvd.pages.components.NavbarComponent;
 import com.solvd.utils.Constants;
 import com.solvd.utils.MyDriver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class BackgroundThemeTest extends BaseTest{
-
-    public HomePage setUpTests(){
-        HomePage homePage =  new HomePage(MyDriver.getWebDriver());
+    protected HomePage homePage;
+    @BeforeTest
+    public void setUpTests(){
+        homePage =  new HomePage(MyDriver.getWebDriver());
         this.navigateTo(Constants.REDDIT_HOME_PAGE);
-        return homePage;
     }
 
     @Test(testName = "itTestThatTheNavbarIsDisplayed")
     public void itTestThatTheNavbarIsDisplayed() {
-        HomePage homePage =  setUpTests();
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         Assert.assertTrue(navbarComponent.isNavbarDisplayed(), "Navbar is not working");
     }
 
     @Test(testName = "itTestThatDarkThemeWorks")
-    public void itTestThatDarkThemeWorks() {
-        HomePage homePage =  setUpTests();
+    public void itTestThatDarkThemeWorks() throws InterruptedException {
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         navbarComponent.clickSettingsButton();
         navbarComponent.clickDarkThemeButton();
         homePage.getBodyBackgroundColor();
-        Assert.assertEquals(homePage.getBodyBackgroundColor(), "rgba(26, 26, 27, 1)", "Dark Theme doesn't work");
+        Assert.assertEquals(homePage.getBodyBackgroundColor(),
+                "rgba(26, 26, 27, 1)", "Dark Theme doesn't work");
     }
 
     @Test(testName = "itTestThatRegisterOrLoginButtonWorks")
     public void itTestThatRegisterOrLoginButtonWorks(){
-        HomePage homePage =  setUpTests();
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         navbarComponent.scrollDownNavbarMenu();
         navbarComponent.clickRegisterOrLoginButton();
@@ -46,7 +45,6 @@ public class BackgroundThemeTest extends BaseTest{
 
     @Test
     public void itTestThatRedirectLinkWorks(){
-        HomePage homePage =  setUpTests();
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         navbarComponent.clickMoreButton();
         navbarComponent.clickRedditIosButton();
@@ -62,21 +60,18 @@ public class BackgroundThemeTest extends BaseTest{
 
     @Test
     public void itTestThatCoinsGoToCoinsPage(){
-        HomePage homePage= setUpTests();
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         CoinsPage coinsPage = navbarComponent.clickCoinsButton();
     }
 
     @Test
     public void itTestThatPremiumGoToPremiumPage(){
-        HomePage homePage= setUpTests();
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         PremiumPage premiumPage = navbarComponent.clickPremiumButton();
     }
 
     @Test
     public void itTestThatTalkGoToTalkPage(){
-        HomePage homePage= setUpTests();
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         TalkPage talkPage = navbarComponent.clickTalkButton();
     }
