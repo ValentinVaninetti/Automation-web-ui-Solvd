@@ -9,10 +9,12 @@ import org.testng.annotations.Test;
 public class LoginComponentTest extends BaseTest {
 
     @Test(priority = 1)
-    public void itTestThatTheLoginComponentOpens(){
+    public void itTestThatTheLoginComponentOpens() throws  Exception{
+        MyScreenRecorder.startRecording("itTestThatTheLoginComponentOpens");
         HomePage homePage = new HomePage(MyDriver.getWebDriver());
         this.navigateTo(Constants.REDDIT_HOME_PAGE);
         homePage.clickOnLogin();
+        MyScreenRecorder.stopRecording();
     }
     @Test(priority = 2,testName = "itTestThatFillingLoginFieldsContinueWithFlow")
     @Parameters({"username", "password"})

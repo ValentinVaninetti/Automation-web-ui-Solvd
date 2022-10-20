@@ -48,7 +48,7 @@ public class NavbarComponent extends BasePage {
     }
 
    public boolean checkPageTitle(String title){
-        if(title =="Reddit on the App Store" ){
+        if(title =="Reddit on the App Store" ){
             System.out.println(title);
             return true;
         }
