@@ -19,7 +19,8 @@ public abstract class BaseTest {
     @AfterTest
     public void afterTestActions() throws InterruptedException {
         if (this.myDriver != null) {
-            MyDriver.getWebDriver().close();
+            Thread.sleep(5000);
+            MyDriver.getWebDriver().quit();
         }
 
     }
