@@ -62,16 +62,15 @@ public class HomePage extends BasePage{
     }
 
     public PostComponent clickFirstPost(){
-        String button_first_post = String.format(TITLE_FIRST_POST,"1","2","2","2","3","1","5","1","3","2","1");
         getLogger(HomePage.getClassName(this)).info("Clicking on first post");
-        webDriver.findElement(By.xpath(button_first_post)).click();
+        webDriver.findElement(By.xpath(TITLE_FIRST_POST)).click();
         return new PostComponent(webDriver);
     }
     public boolean isChatBoxDisplayed(){
         //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("body/div[5]/div/div")));
         //webDriver.switchTo().frame(0);
-
-        return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("body/div[5]/div/div"))).isDisplayed();
+        if (webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/div[5]/div/div"))).isDisplayed());
+        return true;
 
     }
 

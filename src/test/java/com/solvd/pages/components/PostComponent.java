@@ -15,14 +15,9 @@ public class PostComponent extends BasePage {
         super(wDriver);
     }
     public void clickOnSharePost(){
-        if(webDriver.findElement(sharePostButton).isDisplayed()) {
-            webDriverWait.until(ExpectedConditions.elementToBeClickable(sharePostButton)).click();
-        }
-
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(sharePostButton)).click();
     }
     public void clickOnShareOnChat(){
-        if(webDriver.findElement(sharePostButton).isDisplayed()) {
-            webDriverWait.until(ExpectedConditions.elementToBeClickable(shareToChat)).click();
-        }
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(shareToChat)).click();
     }
 }
