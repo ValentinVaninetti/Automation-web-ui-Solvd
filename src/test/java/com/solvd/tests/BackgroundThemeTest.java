@@ -19,36 +19,12 @@ public class BackgroundThemeTest extends BaseTest{
         this.navigateTo(Constants.REDDIT_HOME_PAGE);
     }
 
-    @Test(testName = "itTestThatTheNavbarIsDisplayed")
-    public void itTestThatTheNavbarIsDisplayed() {
-        NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
-        Assert.assertTrue(navbarComponent.isNavbarDisplayed(), "Navbar is not working");
-    }
-
-    @Test(testName = "itTestThatDarkThemeWorks")
-    public void itTestThatDarkThemeWorks() throws InterruptedException {
-        NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
-        navbarComponent.clickSettingsButton();
-        navbarComponent.clickDarkThemeButton();
-        homePage.getBodyBackgroundColor();
-        Assert.assertEquals(homePage.getBodyBackgroundColor(),
-                "rgba(26, 26, 27, 1)", "Dark Theme doesn't work");
-    }
-
-    @Test(testName = "itTestThatRegisterOrLoginButtonWorks")
-    public void itTestThatRegisterOrLoginButtonWorks(){
-        NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
-        navbarComponent.scrollDownNavbarMenu();
-        navbarComponent.clickRegisterOrLoginButton();
-        Assert.assertTrue(homePage.isRegisterOrLoginMenuDisplayed(), "Main is not displayed!");
-    }
-
-    @Test
+   /* @Test
     public void itTestThatRedirectLinkWorks(){
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         navbarComponent.clickMoreButton();
         navbarComponent.clickRedditIosButton();
-        Assert.assertTrue(navbarComponent.checkPageTitle(MyDriver.getPageTitle()), "Redirect error!");
+        Assert.assertTrue(navbarComponent.checkPageTitle(getPageTitle()), "Redirect error!");
         MyDriver.navigateBackwards();
         homePage.clickOnUserDropdown();
         navbarComponent.clickMoreButton();
@@ -56,7 +32,7 @@ public class BackgroundThemeTest extends BaseTest{
         Assert.assertTrue(navbarComponent.checkPageTitle(MyDriver.getPageTitle()), "Redirect error!");
         MyDriver.navigateBackwards();
         Assert.assertTrue(navbarComponent.checkPageTitle(MyDriver.getPageTitle()), "Redirect error!");
-    }
+    }*/
 
     @Test
     public void itTestThatCoinsGoToCoinsPage(){

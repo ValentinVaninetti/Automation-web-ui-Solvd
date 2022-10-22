@@ -1,20 +1,15 @@
 package com.solvd.tests;
 
 import org.monte.media.Format;
-import org.monte.media.FormatKeys.*;
 import org.monte.media.Registry;
 import org.monte.media.math.Rational;
 import org.monte.screenrecorder.ScreenRecorder;
-
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import static org.monte.media.AudioFormatKeys.*;
-import static org.monte.media.FormatKeys.*;
-import static org.monte.media.VideoFormatKeys.*;
 import static org.monte.media.VideoFormatKeys.CompressorNameKey;
 import static org.monte.media.VideoFormatKeys.DepthKey;
 import static org.monte.media.VideoFormatKeys.ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE;

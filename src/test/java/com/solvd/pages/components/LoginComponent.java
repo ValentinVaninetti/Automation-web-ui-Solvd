@@ -12,7 +12,7 @@ public class LoginComponent extends BasePage {
         super(wDriver);
     }
 
-    public void setUsername(String username) throws InterruptedException {
+    public void setUsername(String username) {
         webDriver.switchTo().frame(0);
         webDriver.findElement(By.cssSelector(WebLocators.INPUT_USERNAME)).sendKeys(username);
     }

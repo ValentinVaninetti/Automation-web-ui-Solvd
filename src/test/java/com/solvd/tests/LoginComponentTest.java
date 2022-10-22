@@ -18,7 +18,7 @@ public class LoginComponentTest extends BaseTest {
     }
     @Test(priority = 2,testName = "itTestThatFillingLoginFieldsContinueWithFlow")
     @Parameters({"username", "password"})
-    public void itTestThatFillingLoginFieldsContinueWithFlow(String username, String password) throws InterruptedException {
+    public void itTestThatFillingLoginFieldsContinueWithFlow(String username, String password){
         HomePage homePage = new HomePage(MyDriver.getWebDriver());
         homePage.navigateToHome();
         LoginComponent loginComponent = homePage.clickOnLogin();
@@ -28,7 +28,7 @@ public class LoginComponentTest extends BaseTest {
         loginComponent.clickLoginSession();
     }
     @Test(priority = 3)
-    public void itTestIsLogout() throws InterruptedException,Exception {
+    public void itTestIsLogout(){
         HomePage homePage = new HomePage(MyDriver.getWebDriver());
         this.navigateTo(Constants.REDDIT_HOME_PAGE);
         LoginComponent loginComponent = new LoginComponent(MyDriver.getWebDriver());
