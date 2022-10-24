@@ -53,11 +53,12 @@ public class HomePage extends BasePage{
         webDriver.findElement(CssComponent.CSS_SEARCH).click();
     }
     public SearchPage setSearch( String SEARCH) {
-        getLogger(HomePage.getClassName(this)).info("Filling searchbar");
+        log.info("Filling Search Bar");
         webDriver.findElement(CssComponent.CSS_SEARCH).sendKeys(SEARCH);
         clickOnSearch();
-        getLogger(HomePage.getClassName(this)).info("Entering search");
+        log.info("Entering search");
         webDriver.findElement(CssComponent.CSS_SEARCH).sendKeys(Keys.ENTER);
+        log.info("Sending information");
         return new SearchPage(MyDriver.getWebDriver());
     }
     public void navigateToHome(){

@@ -1,5 +1,6 @@
 package com.solvd.pages;
 import com.solvd.utils.MyDriver;
+import org.apache.log4j.LogManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.apache.log4j.Logger;
@@ -8,6 +9,7 @@ import org.apache.log4j.Logger;
 import java.time.Duration;
 
 public abstract class BasePage {
+    protected Logger log = LogManager.getLogger(getClass().getName());
     protected WebDriver webDriver;
     protected WebDriverWait webDriverWait;
 

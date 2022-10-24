@@ -58,8 +58,8 @@ public class HomePageTest extends BaseTest{
     @Test
     public void itTestsThatSharingAPostOfflineChatboxDoesntOpens() throws InterruptedException {
         HomePage homePage = new HomePage(MyDriver.getWebDriver());
-        homePage.navigateToHome();
         PostComponent postComponent = homePage.clickFirstPost();
+        Thread.sleep(5000);
         postComponent.clickOnSharePost();
         postComponent.clickOnShareOnChat();
         Assert.assertTrue(homePage.isChatBoxDisplayed(),"OMG");
