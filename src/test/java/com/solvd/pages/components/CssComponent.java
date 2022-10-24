@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class CssComponent extends BasePage{
-    
+
     public static By CSS_BACKGROUND = By.xpath("//body/div/div[1]");
     public static By CSS_SEARCH = By.cssSelector("#header-search-bar");
     public static By CSS_BUTTON_SEARCH_COMMENTS = By.cssSelector(" a:nth-child(2) > button");
@@ -22,8 +22,6 @@ public class CssComponent extends BasePage{
     public CssComponent(WebDriver wDriver) {
         super(wDriver);
     }
-
-
 
 }
 
