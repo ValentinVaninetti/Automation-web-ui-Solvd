@@ -6,6 +6,7 @@ import com.solvd.pages.components.NavbarComponent;
 import com.solvd.pages.components.PostComponent;
 import com.solvd.utils.Constants;
 import com.solvd.utils.MyDriver;
+import com.solvd.utils.WebLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -13,23 +14,24 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
-    private By BUTTON_FIRST_POST = By.xpath("//div[1]/div[5]/div[1]/div/div");
-    private By HEADER_USER_DROPDOWN = By.className("header-user-dropdown");
-    private By CHAT_BOX_DISPLAYED = By.xpath("//body/div[5]/div/div");
+    private final By BUTTON_FIRST_POST = By.xpath(WebLocators.BUTTON_FIRST_POST);
+    private final By HEADER_USER_DROPDOWN = By.className(WebLocators.HEADER_USER_DROPDOWN);
+    private final By CHAT_BOX_DISPLAYED = By.xpath(WebLocators.CHAT_BOX_DISPLAYED);
 
     public HomePage(WebDriver wDriver) {
         super(wDriver);
     }
 
 
-    public LoginComponent clickOnLogin(){
+    public LoginComponent clickOnLogin() {
         webDriver.findElement(LoginComponent.CSS_OPEN_LOGIN_BUTTON).click();
         return new LoginComponent(webDriver);
     }
+
     public NavbarComponent clickOnUserDropdown() {
-        if (webDriver.findElement(HEADER_USER_DROPDOWN).isDisplayed()){
+        if (webDriver.findElement(HEADER_USER_DROPDOWN).isDisplayed()) {
             getLogger(HomePage.getClassName(this)).info("Clicking on Dropdown Button menu");
             webDriver.findElement(HEADER_USER_DROPDOWN).click();
         }
@@ -37,12 +39,12 @@ public class HomePage extends BasePage{
     }
 
 
-    public String getBodyBackgroundColor(){
+    public String getBodyBackgroundColor() {
         return webDriver.findElement(CssComponent.CSS_BACKGROUND)
                 .getCssValue("background-color");
     }
 
-    public boolean isRegisterOrLoginMenuDisplayed(){
+    public boolean isRegisterOrLoginMenuDisplayed() {
         getLogger(HomePage.getClassName(this)).info("Switching to frame and checking if login menu is displayed");
         webDriver.switchTo().frame(0);
         return webDriver.findElement(LoginComponent.LOGIN_MENU_DISPLAY).isDisplayed();
@@ -52,7 +54,8 @@ public class HomePage extends BasePage{
         getLogger(HomePage.getClassName(this)).info("Clicking on search input");
         webDriver.findElement(CssComponent.CSS_SEARCH).click();
     }
-    public SearchPage setSearch( String SEARCH) {
+
+    public SearchPage setSearch(String SEARCH) {
         log.info("Filling Search Bar");
         webDriver.findElement(CssComponent.CSS_SEARCH).sendKeys(SEARCH);
         clickOnSearch();
@@ -61,29 +64,37 @@ public class HomePage extends BasePage{
         log.info("Sending information");
         return new SearchPage(MyDriver.getWebDriver());
     }
-    public void navigateToHome(){
+
+    public void navigateToHome() {
         webDriver.get(Constants.REDDIT_HOME_PAGE);
     }
 
-    public PostComponent clickFirstPost(){
+    public PostComponent clickFirstPost() {
         getLogger(HomePage.getClassName(this)).info("Clicking on first post");
         webDriver.findElement(BUTTON_FIRST_POST).click();
         return new PostComponent(webDriver);
     }
-    public boolean isChatBoxDisplayed(){
-        if (webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(CHAT_BOX_DISPLAYED)).isDisplayed()){
+
+    public boolean isChatBoxDisplayed() {
+        if (webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(CHAT_BOX_DISPLAYED)).isDisplayed()) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
-    public boolean isLoginComponentDisplayed(){
+
+    public boolean isLoginComponentDisplayed() {
         clickLoginDiv();
         webDriverWait.until(ExpectedConditions.elementToBeClickable(LoginComponent.BUTTON_LOGIN_SESSION));
         return webDriver.findElement(LoginComponent.BUTTON_LOGIN_SESSION).isDisplayed();
     }
-    public void clickLoginDiv(){
+
+    public void clickLoginDiv() {
         webDriver.switchTo().frame(0);
         webDriver.findElement(By.xpath("//div/main")).click();
+    }
+
+    public boolean isLoginButtonDisplayed() {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(LoginComponent.CSS_OPEN_LOGIN_BUTTON));
+        return webDriver.findElement(LoginComponent.CSS_OPEN_LOGIN_BUTTON).isDisplayed();
     }
 
 }

@@ -10,21 +10,22 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class HomePageTest extends BaseTest{
+public class HomePageTest extends BaseTest {
     protected HomePage homePage;
 
     @BeforeTest
-    public void setUpTests(){
-        homePage =  new HomePage(MyDriver.getWebDriver());
+    public void setUpTests() {
+        homePage = new HomePage(MyDriver.getWebDriver());
         this.navigateTo(Constants.REDDIT_HOME_PAGE);
     }
 
     @Test
-    public void itTestsThatThePageOpens(){
-        HomePage homePage =  new HomePage(MyDriver.getWebDriver());
+    public void itTestsThatThePageOpens() {
+        HomePage homePage = new HomePage(MyDriver.getWebDriver());
         homePage.navigateToHome();
-        Assert.assertEquals(this.homePage.getPageTitle(),"Reddit - Dive into anything","Title is not the expected");
+        Assert.assertEquals(this.homePage.getPageTitle(), "Reddit - Dive into anything", "Title is not the expected");
     }
+
     @Test
     public void itTestThatTheSearchNavWorks() throws InterruptedException {
         HomePage homepage = new HomePage(MyDriver.getWebDriver());
@@ -33,20 +34,23 @@ public class HomePageTest extends BaseTest{
         SearchPage sp = homepage.setSearch("QA AUTOMATION");
         Assert.assertTrue(sp.isTitle("QA AUTOMATION"), "its ok");
     }
+
     @Test(testName = "itTestThatTheNavbarIsDisplayed")
     public void itTestThatTheNavbarIsDisplayed() {
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         Assert.assertTrue(navbarComponent.isNavbarDisplayed(), "Navbar is not working");
     }
+
     @Test(testName = "itTestThatRegisterOrLoginButtonWorks")
-    public void itTestThatRegisterOrLoginButtonWorks(){
+    public void itTestThatRegisterOrLoginButtonWorks() {
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         navbarComponent.scrollDownNavbarMenu();
         navbarComponent.clickRegisterOrLoginButton();
         Assert.assertTrue(homePage.isRegisterOrLoginMenuDisplayed(), "Main is not displayed!");
     }
+
     @Test(testName = "itTestThatDarkThemeWorks")
-    public void itTestThatDarkThemeWorks(){
+    public void itTestThatDarkThemeWorks() {
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         navbarComponent.clickSettingsButton();
         navbarComponent.clickDarkThemeButton();
@@ -56,13 +60,12 @@ public class HomePageTest extends BaseTest{
     }
 
     @Test
-    public void itTestsThatSharingAPostOfflineChatboxDoesntOpens() throws InterruptedException {
+    public void itTestsThatSharingAPostOfflineChatboxDoesntOpens() {
         HomePage homePage = new HomePage(MyDriver.getWebDriver());
         PostComponent postComponent = homePage.clickFirstPost();
-        Thread.sleep(5000);
         postComponent.clickOnSharePost();
         postComponent.clickOnShareOnChat();
-        Assert.assertTrue(homePage.isChatBoxDisplayed(),"OMG");
+        Assert.assertTrue(homePage.isChatBoxDisplayed(), "OMG");
 
     }
 

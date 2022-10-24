@@ -1,18 +1,18 @@
 package com.solvd.pages.components;
 
 import com.solvd.pages.BasePage;
+import com.solvd.utils.WebLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-public class CssComponent extends BasePage{
+public class CssComponent extends BasePage {
 
-    public static By CSS_BACKGROUND = By.xpath("//body/div/div[1]");
-    public static By CSS_SEARCH = By.cssSelector("#header-search-bar");
-    public static By CSS_BUTTON_SEARCH_COMMENTS = By.cssSelector(" a:nth-child(2) > button");
-    public static By CSS_BUTTON_SEARCH_COMMUNITIES = By.cssSelector(" a:nth-child(3) > button");
-    public static By CSS_BUTTON_SEARCH_POSTS = By.cssSelector(" a:nth-child(1) > button");
-    public static By CSS_BUTTON_SEARCH_PEOPLE = By.cssSelector(" a:nth-child(4) > button");
+    public static By CSS_BACKGROUND = By.xpath(WebLocators.CSS_BACKGROUND);
+    public static By CSS_SEARCH = By.cssSelector(WebLocators.CSS_SEARCH);
+    public static By CSS_BUTTON_SEARCH_COMMENTS = By.cssSelector(WebLocators.CSS_BUTTON_SEARCH_COMMENTS);
+    public static By CSS_BUTTON_SEARCH_COMMUNITIES = By.cssSelector(WebLocators.CSS_BUTTON_SEARCH_COMMUNITIES);
+    public static By CSS_BUTTON_SEARCH_POSTS = By.cssSelector(WebLocators.CSS_BUTTON_SEARCH_POSTS);
+    public static By CSS_BUTTON_SEARCH_PEOPLE = By.cssSelector(WebLocators.CSS_BUTTON_SEARCH_PEOPLE);
 
 
     public By getCSS_BACKGROUND() {

@@ -9,36 +9,36 @@ import com.solvd.utils.Constants;
 import com.solvd.utils.MyDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class BackgroundThemeTest extends BaseTest{
+public class BackgroundThemeTest extends BaseTest {
     protected HomePage homePage;
+
     @BeforeClass
-    public void setUpTests(){
-        homePage =  new HomePage(MyDriver.getWebDriver());
+    public void setUpTests() {
+        homePage = new HomePage(MyDriver.getWebDriver());
         this.navigateTo(Constants.REDDIT_HOME_PAGE);
     }
 
     @Test
-    public void itTestThatCoinsGoToCoinsPage() throws InterruptedException {
+    public void itTestThatCoinsGoToCoinsPage() {
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         CoinsPage coinsPage = navbarComponent.clickCoinsButton();
-        Assert.assertTrue(coinsPage.isButtonCoinDisplayed(),"OMG");
+        Assert.assertTrue(coinsPage.isButtonCoinDisplayed(), "OMG");
     }
 
     @Test
-    public void itTestThatPremiumGoToPremiumPage(){
+    public void itTestThatPremiumGoToPremiumPage() {
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         PremiumPage premiumPage = navbarComponent.clickPremiumButton();
-        Assert.assertTrue(premiumPage.isButtonPremiumDisplayed(),"OMG");
+        Assert.assertTrue(premiumPage.isButtonPremiumDisplayed(), "OMG");
     }
 
     @Test
-    public void itTestThatTalkGoToTalkPage(){
+    public void itTestThatTalkGoToTalkPage() {
         NavbarComponent navbarComponent = homePage.clickOnUserDropdown();
         TalkPage talkPage = navbarComponent.clickTalkButton();
-        Assert.assertTrue(talkPage.isButtonTalkDisplayed(),"OMG");
+        Assert.assertTrue(talkPage.isButtonTalkDisplayed(), "OMG");
 
     }
 }

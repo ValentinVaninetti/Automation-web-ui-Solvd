@@ -4,6 +4,7 @@ import com.solvd.pages.BasePage;
 import com.solvd.pages.CoinsPage;
 import com.solvd.pages.PremiumPage;
 import com.solvd.pages.TalkPage;
+import com.solvd.utils.WebLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -11,17 +12,17 @@ import org.openqa.selenium.WebElement;
 
 public class NavbarComponent extends BasePage {
 
-    private By BUTTON_DROPDOWN_USER = By.id("USER_DROPDOWN_ID");
-    private By DROPDOWN_USER_MENU = By.xpath("//div[@role=\"menu\"]");
-    private By BUTTON_DROPDOWN_USER_SETTINGS = By.xpath("//div[@role=\"menu\"]/div/button[2]");
-    private By BUTTON_SETTINGS_DARK_THEME = By.xpath("//button[@role=\"switch\"]");
-    private By DROPDOWN_USER_REGISTER_OR_LOGIN = By.xpath("//div[@role=\"menu\"]/div/button[5]");
-    private By DROPDOWN_USER_MORE_BUTTON = By.xpath("//div[@role=\"menu\"]/div/button[3]");
-    private By DROPDOWN_USER_MORE_IOS = By.xpath( "//a[@href=\"https://reddit.onelink.me/MRHZ/b3d845e\"]");
-    private By DROPDOWN_USER_MORE_ANDROID = By.xpath("//a[@href=\"https://reddit.onelink.me/MRHZ/4c212f61\"]");
-    private By CLICK_COINS_BUTTON = By.xpath("//a[@href=\"/coins\"]");
-    private By CLICK_PREMIUM_BUTTON = By.xpath("//a[@href=\"/premium\"]");
-    private By CLICK_TALK_BUTTON = By.xpath("//a[@href=\"/talk\"]");
+    private final By BUTTON_DROPDOWN_USER = By.id(WebLocators.BUTTON_DROPDOWN_USER);
+    private final By DROPDOWN_USER_MENU = By.xpath(WebLocators.DROPDOWN_USER_MENU);
+    private final By BUTTON_DROPDOWN_USER_SETTINGS = By.xpath(WebLocators.BUTTON_DROPDOWN_USER_SETTINGS);
+    private final By BUTTON_SETTINGS_DARK_THEME = By.xpath(WebLocators.BUTTON_SETTINGS_DARK_THEME);
+    private final By DROPDOWN_USER_REGISTER_OR_LOGIN = By.xpath(WebLocators.DROPDOWN_USER_REGISTER_OR_LOGIN);
+    private final By DROPDOWN_USER_MORE_BUTTON = By.xpath(WebLocators.DROPDOWN_USER_MORE_BUTTON);
+    private final By DROPDOWN_USER_MORE_IOS = By.xpath(WebLocators.DROPDOWN_USER_MORE_IOS);
+    private final By DROPDOWN_USER_MORE_ANDROID = By.xpath(WebLocators.DROPDOWN_USER_MORE_ANDROID);
+    private final By CLICK_COINS_BUTTON = By.xpath(WebLocators.CLICK_COINS_BUTTON);
+    private final By CLICK_PREMIUM_BUTTON = By.xpath(WebLocators.CLICK_PREMIUM_BUTTON);
+    private final By CLICK_TALK_BUTTON = By.xpath(WebLocators.CLICK_TALK_BUTTON);
     private String PAGE_TITLE = "Reddit on the App Store";
     private WebElement darkTheme = webDriver.findElement(BUTTON_SETTINGS_DARK_THEME);
     private WebElement settingsBtn = webDriver.findElement(BUTTON_DROPDOWN_USER_SETTINGS);
@@ -36,13 +37,13 @@ public class NavbarComponent extends BasePage {
     }
 
     public void clickSettingsButton() {
-        if (settingsBtn.isDisplayed()){
+        if (settingsBtn.isDisplayed()) {
             settingsBtn.click();
         }
     }
 
     public void clickDarkThemeButton() {
-        if(darkTheme.isDisplayed()){
+        if (darkTheme.isDisplayed()) {
             darkTheme.click();
         }
     }
@@ -55,33 +56,33 @@ public class NavbarComponent extends BasePage {
         webDriver.findElement(DROPDOWN_USER_REGISTER_OR_LOGIN).click();
     }
 
-    public void clickMoreButton(){
+    public void clickMoreButton() {
         webDriver.findElement(DROPDOWN_USER_MORE_BUTTON).click();
     }
 
-    public void clickRedditIosButton(){
+    public void clickRedditIosButton() {
         webDriver.findElement(DROPDOWN_USER_MORE_IOS).click();
     }
 
-    public void clickRedditAndroidButton(){
+    public void clickRedditAndroidButton() {
         webDriver.findElement(DROPDOWN_USER_MORE_ANDROID).click();
     }
 
-    public boolean checkPageTitle(String title){
+    public boolean checkPageTitle(String title) {
         return title.equals(PAGE_TITLE);
     }
 
-    public CoinsPage clickCoinsButton(){
+    public CoinsPage clickCoinsButton() {
         webDriver.findElement(CLICK_COINS_BUTTON).click();
         return new CoinsPage(webDriver);
     }
 
-    public PremiumPage clickPremiumButton(){
+    public PremiumPage clickPremiumButton() {
         webDriver.findElement(CLICK_PREMIUM_BUTTON).click();
         return new PremiumPage(webDriver);
     }
 
-    public TalkPage clickTalkButton(){
+    public TalkPage clickTalkButton() {
         webDriver.findElement(CLICK_TALK_BUTTON).click();
         return new TalkPage(webDriver);
     }
