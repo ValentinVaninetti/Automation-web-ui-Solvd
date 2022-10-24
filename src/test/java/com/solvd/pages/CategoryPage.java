@@ -6,6 +6,10 @@ import org.openqa.selenium.WebDriver;
 
 public class CategoryPage extends BasePage{
 
+    private By NEAR_YOU_CAT = By.linkText("Near You");
+    private By SPORT_CAT = By.linkText("Sports");
+    private By GAMING_CAT = By.linkText("Gaming");
+    private By NEWS_CAT = By.linkText("News");
     public CategoryPage(WebDriver wDriver) {
         super(wDriver);
     }
@@ -14,15 +18,15 @@ public class CategoryPage extends BasePage{
         webDriver.get(REDDIT_CATEGORY_PAGE);
     }
     public void clickOnNearYouCategory(){
-        webDriver.findElement(By.linkText("Near You")).click();
+        webDriver.findElement(NEAR_YOU_CAT).click();
     }
     public void clickOnSportsCategory(){
-        webDriver.findElement(By.linkText("Sports")).click();
+        webDriver.findElement(SPORT_CAT).click();
     }
     public void clickOnGamingCategory(){
-        webDriver.findElement(By.linkText("Gaming")).click();
+        webDriver.findElement(GAMING_CAT).click();
     }
     public void clickOnNewsCategory(){
-        webDriver.findElement(By.linkText("News")).click();
+        webDriver.findElement(NEWS_CAT).click();
     }
 }

@@ -4,7 +4,6 @@ import com.solvd.pages.BasePage;
 import com.solvd.pages.CoinsPage;
 import com.solvd.pages.PremiumPage;
 import com.solvd.pages.TalkPage;
-import com.solvd.utils.WebLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,50 +11,64 @@ import org.openqa.selenium.WebElement;
 
 public class NavbarComponent extends BasePage {
 
+    private By BUTTON_DROPDOWN_USER = By.id("USER_DROPDOWN_ID");
+    private By DROPDOWN_USER_MENU = By.xpath("//div[@role=\"menu\"]");
+    private By BUTTON_DROPDOWN_USER_SETTINGS = By.xpath("//div[@role=\"menu\"]/div/button[2]");
+    private By BUTTON_SETTINGS_DARK_THEME = By.xpath("//button[@role=\"switch\"]");
+    private By DROPDOWN_USER_REGISTER_OR_LOGIN = By.xpath("//div[@role=\"menu\"]/div/button[5]");
+    private By DROPDOWN_USER_MORE_BUTTON = By.xpath("//div[@role=\"menu\"]/div/button[3]");
+    private By DROPDOWN_USER_MORE_IOS = By.xpath( "//a[@href=\"https://reddit.onelink.me/MRHZ/b3d845e\"]");
+    private By DROPDOWN_USER_MORE_ANDROID = By.xpath("//a[@href=\"https://reddit.onelink.me/MRHZ/4c212f61\"]");
+    private By CLICK_COINS_BUTTON = By.xpath("//a[@href=\"/coins\"]");
+    private By CLICK_PREMIUM_BUTTON = By.xpath("//a[@href=\"/premium\"]");
+    private By CLICK_TALK_BUTTON = By.xpath("//a[@href=\"/talk\"]");
+    private String PAGE_TITLE = "Reddit on the App Store";
+    private WebElement darkTheme = webDriver.findElement(BUTTON_SETTINGS_DARK_THEME);
+    private WebElement settingsBtn = webDriver.findElement(BUTTON_DROPDOWN_USER_SETTINGS);
+
+
     public NavbarComponent(WebDriver wDriver) {
         super(wDriver);
     }
 
     public boolean isNavbarDisplayed() {
-        return webDriver.findElement(By.id(WebLocators.BUTTON_DROPDOWN_USER)).isDisplayed();
+        return webDriver.findElement(BUTTON_DROPDOWN_USER).isDisplayed();
     }
 
     public void clickSettingsButton() {
-        WebElement settingsBtn = webDriver.findElement(By.xpath(WebLocators.BUTTON_DROPDOWN_USER_SETTINGS));
         if (settingsBtn.isDisplayed()){
             settingsBtn.click();
         }
     }
 
     public void clickDarkThemeButton() {
-        WebElement darkTheme = webDriver.findElement(By.xpath("//button[@role=\"switch\"]"));
         if(darkTheme.isDisplayed()){
             darkTheme.click();
         }
     }
 
     public void scrollDownNavbarMenu() {
-        webDriver.findElement(By.xpath(WebLocators.DROPDOWN_USER_MENU)).sendKeys(Keys.CONTROL, Keys.END);
+        webDriver.findElement(DROPDOWN_USER_MENU).sendKeys(Keys.CONTROL, Keys.END);
     }
 
     public void clickRegisterOrLoginButton() {
-        webDriver.findElement(By.xpath(WebLocators.DROPDOWN_USER_REGISTER_OR_LOGIN)).click();
+        webDriver.findElement(DROPDOWN_USER_REGISTER_OR_LOGIN).click();
     }
 
     public void clickMoreButton(){
-        webDriver.findElement(By.xpath(WebLocators.DROPDOWN_USER_MORE_BUTTON)).click();
+        webDriver.findElement(DROPDOWN_USER_MORE_BUTTON).click();
     }
 
     public void clickRedditIosButton(){
-        webDriver.findElement(By.xpath(WebLocators.DROPDOWN_USER_MORE_IOS)).click();
+        webDriver.findElement(DROPDOWN_USER_MORE_IOS).click();
     }
 
     public void clickRedditAndroidButton(){
-        webDriver.findElement(By.xpath(WebLocators.DROPDOWN_USER_MORE_ANDROID)).click();
+        webDriver.findElement(DROPDOWN_USER_MORE_ANDROID).click();
     }
 
-   public boolean checkPageTitle(String title){
-        if(title.equals("Reddit on the App Store")){
+    public boolean checkPageTitle(String title){
+        if(title.equals(PAGE_TITLE)){
             System.out.println(title);
             return true;
         }
@@ -64,17 +77,17 @@ public class NavbarComponent extends BasePage {
     }
 
     public CoinsPage clickCoinsButton(){
-        webDriver.findElement(By.xpath("//a[@href=\"/coins\"]"));
+        webDriver.findElement(CLICK_COINS_BUTTON);
         return new CoinsPage(webDriver);
     }
 
     public PremiumPage clickPremiumButton(){
-        webDriver.findElement(By.xpath("//a[@href=\"/premium\"]"));
+        webDriver.findElement(CLICK_PREMIUM_BUTTON);
         return new PremiumPage(webDriver);
     }
 
     public TalkPage clickTalkButton(){
-        webDriver.findElement(By.xpath("//a[@href=\"/talk\"]"));
+        webDriver.findElement(CLICK_TALK_BUTTON);
         return new TalkPage(webDriver);
     }
 }
