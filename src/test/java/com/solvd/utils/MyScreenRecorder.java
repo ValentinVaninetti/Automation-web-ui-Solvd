@@ -1,4 +1,4 @@
-package com.solvd.tests;
+package com.solvd.utils;
 
 import org.monte.media.Format;
 import org.monte.media.Registry;

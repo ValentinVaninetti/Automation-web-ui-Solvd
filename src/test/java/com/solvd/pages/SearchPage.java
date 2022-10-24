@@ -2,11 +2,15 @@ package com.solvd.pages;
 
 import static com.solvd.utils.Constants.REDDIT_SEARCH_PAGE;
 import com.solvd.pages.components.CssComponent;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class SearchPage extends BasePage {
+
+    private By FIRST_COMMENT = By.xpath("//div[2]/div/div/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div/div/div");
+    private By ALL_COMMUNITIES = By.xpath("//div/div/div[2]/div/div[2]");
 
 
     public SearchPage(WebDriver wDriver) {
@@ -31,5 +35,13 @@ public class SearchPage extends BasePage {
     }
     public void navigateToSearch(){
         webDriver.get(REDDIT_SEARCH_PAGE);
+    }
+    public boolean isCommentDivDisplayed(){
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_COMMENT));
+        return webDriver.findElement(FIRST_COMMENT).isDisplayed();
+    }
+    public boolean isCommunitiesDivDisplayed(){
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(ALL_COMMUNITIES));
+        return webDriver.findElement(ALL_COMMUNITIES).isDisplayed();
     }
 }

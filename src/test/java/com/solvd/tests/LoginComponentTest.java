@@ -4,6 +4,8 @@ import com.solvd.pages.HomePage;
 import com.solvd.pages.components.LoginComponent;
 import com.solvd.utils.Constants;
 import com.solvd.utils.MyDriver;
+import com.solvd.utils.MyScreenRecorder;
+import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 public class LoginComponentTest extends BaseTest {
@@ -15,6 +17,7 @@ public class LoginComponentTest extends BaseTest {
         this.navigateTo(Constants.REDDIT_HOME_PAGE);
         homePage.clickOnLogin();
         MyScreenRecorder.stopRecording();
+        Assert.assertTrue(homePage.isLoginComponentDisplayed(), "OMG");
     }
     @Test(priority = 2,testName = "itTestThatFillingLoginFieldsContinueWithFlow")
     @Parameters({"username", "password"})

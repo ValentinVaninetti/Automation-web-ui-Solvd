@@ -68,26 +68,21 @@ public class NavbarComponent extends BasePage {
     }
 
     public boolean checkPageTitle(String title){
-        if(title.equals(PAGE_TITLE)){
-            System.out.println(title);
-            return true;
-        }
-        return false;
-
+        return title.equals(PAGE_TITLE);
     }
 
     public CoinsPage clickCoinsButton(){
-        webDriver.findElement(CLICK_COINS_BUTTON);
+        webDriver.findElement(CLICK_COINS_BUTTON).click();
         return new CoinsPage(webDriver);
     }
 
     public PremiumPage clickPremiumButton(){
-        webDriver.findElement(CLICK_PREMIUM_BUTTON);
+        webDriver.findElement(CLICK_PREMIUM_BUTTON).click();
         return new PremiumPage(webDriver);
     }
 
     public TalkPage clickTalkButton(){
-        webDriver.findElement(CLICK_TALK_BUTTON);
+        webDriver.findElement(CLICK_TALK_BUTTON).click();
         return new TalkPage(webDriver);
     }
 }

@@ -1,0 +1,1 @@
+{"uuid":"eaebe387-0c29-45bd-a975-1ddc5e61247b","name":"com.solvd.tests.BackgroundThemeTest","children":["71389d6d-b9b8-424f-a001-81abd6051a4f"],"befores":[{"name":"setUpTests","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1666634776026,"stop":1666634781463}],"afters":[],"start":1666634773213,"stop":1666634786759}

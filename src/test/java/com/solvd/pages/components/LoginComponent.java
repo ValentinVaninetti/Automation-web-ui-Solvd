@@ -9,7 +9,7 @@ public class LoginComponent extends BasePage {
     private WebElement wbElement;
     private By INPUT_USERNAME = By.cssSelector("input[id=\"loginUsername\"]");
     private By INPUT_PASSWORD = By.id("loginPassword");
-    private By BUTTON_LOGIN_SESSION = By.cssSelector("fieldset:nth-child(8) > button");
+    public static By BUTTON_LOGIN_SESSION = By.cssSelector("fieldset:nth-child(8) > button");
     private By BUTTON_LOGOUT = By.xpath("//div[@role=\"menu\"]/div/button[5]");
     private By BUTTON_DROPDOWN_USER = By.id("USER_DROPDOWN_ID");
 

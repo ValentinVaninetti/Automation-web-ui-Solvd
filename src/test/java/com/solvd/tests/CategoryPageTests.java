@@ -2,6 +2,7 @@ package com.solvd.tests;
 
 import com.solvd.pages.CategoryPage;
 import com.solvd.utils.MyDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CategoryPageTests extends BaseTest{
@@ -11,27 +12,27 @@ public class CategoryPageTests extends BaseTest{
         CategoryPage categoryPage = new CategoryPage(MyDriver.getWebDriver());
         categoryPage.navigateToCategory();
         categoryPage.clickOnNearYouCategory();
-        //assert
+        Assert.assertTrue(categoryPage.isFirstNearYouDisplayed(), "OMG");
     }
     @Test
     public void enterCategorySports() {
         CategoryPage categoryPage = new CategoryPage(MyDriver.getWebDriver());
         categoryPage.navigateToCategory();
         categoryPage.clickOnSportsCategory();
-        //assert
+        Assert.assertTrue(categoryPage.isFirstSportsDisplayed(), "OMG");
     }
     @Test
     public void enterCategoryGaming() {
         CategoryPage categoryPage = new CategoryPage(MyDriver.getWebDriver());
         categoryPage.navigateToCategory();
         categoryPage.clickOnGamingCategory();
-        //assert
+        Assert.assertTrue(categoryPage.isFirstGamingDisplayed(), "OMG");
     }
     @Test
     public void enterCategoryNews() {
         CategoryPage categoryPage = new CategoryPage(MyDriver.getWebDriver());
         categoryPage.navigateToCategory();
         categoryPage.clickOnNewsCategory();
-        //assert
+        Assert.assertTrue(categoryPage.isFirstNewsDisplayed(), "OMG");
     }
 }

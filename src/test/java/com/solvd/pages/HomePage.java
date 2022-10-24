@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class HomePage extends BasePage{
@@ -75,6 +75,15 @@ public class HomePage extends BasePage{
             return true;
         }
         else return false;
+    }
+    public boolean isLoginComponentDisplayed(){
+        clickLoginDiv();
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(LoginComponent.BUTTON_LOGIN_SESSION));
+        return webDriver.findElement(LoginComponent.BUTTON_LOGIN_SESSION).isDisplayed();
+    }
+    public void clickLoginDiv(){
+        webDriver.switchTo().frame(0);
+        webDriver.findElement(By.xpath("//div/main")).click();
     }
 
 }
