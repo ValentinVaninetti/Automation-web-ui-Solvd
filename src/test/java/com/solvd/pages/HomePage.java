@@ -15,9 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage{
 
-
-    private String TITLE_FIRST_POST =("/html/body/div[%s]/div/div[%s]/div[%s]/div/div/div/div[%s]/div[%s]/div[%s]/div[%s]/div[%s]/div/div/div[%s]/div[%s]/div[%s]/a/div/h3");
-    private By BUTTON_FIRST_POST = By.xpath(String.format(TITLE_FIRST_POST,"1","2","2","2","3","1","5","1","3","2","1"));
+    private By BUTTON_FIRST_POST = By.xpath("//div[1]/div[5]/div[1]/div/div");
     private By HEADER_USER_DROPDOWN = By.className("header-user-dropdown");
     private By CHAT_BOX_DISPLAYED = By.xpath("//body/div[5]/div/div");
 
@@ -54,7 +52,7 @@ public class HomePage extends BasePage{
         getLogger(HomePage.getClassName(this)).info("Clicking on search input");
         webDriver.findElement(CssComponent.CSS_SEARCH).click();
     }
-    public SearchPage setSearch( String SEARCH) throws InterruptedException {
+    public SearchPage setSearch( String SEARCH) {
         getLogger(HomePage.getClassName(this)).info("Filling searchbar");
         webDriver.findElement(CssComponent.CSS_SEARCH).sendKeys(SEARCH);
         clickOnSearch();
@@ -72,11 +70,10 @@ public class HomePage extends BasePage{
         return new PostComponent(webDriver);
     }
     public boolean isChatBoxDisplayed(){
-        //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("body/div[5]/div/div")));
-        //webDriver.switchTo().frame(0);
-        if (webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(CHAT_BOX_DISPLAYED)).isDisplayed());
-        return true;
-
+        if (webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(CHAT_BOX_DISPLAYED)).isDisplayed()){
+            return true;
+        }
+        else return false;
     }
 
 }
