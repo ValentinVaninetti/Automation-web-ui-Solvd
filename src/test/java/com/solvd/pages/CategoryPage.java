@@ -9,15 +9,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CategoryPage extends BasePage {
 
-    public final By NEAR_YOU_CAT = By.xpath(WebLocators.NEAR_YOU_CAT);
-    public final By SPORT_CAT = By.xpath(WebLocators.SPORT_CAT);
-    public final By GAMING_CAT = By.xpath(WebLocators.GAMING_CAT);
-    public final By NEWS_CAT = By.xpath(WebLocators.NEWS_CAT);
+    private final By NEAR_YOU_CAT = By.xpath(WebLocators.NEAR_YOU_CAT);
+    private final By SPORT_CAT = By.xpath(WebLocators.SPORT_CAT);
+    private final By GAMING_CAT = By.xpath(WebLocators.GAMING_CAT);
+    private final By NEWS_CAT = By.xpath(WebLocators.NEWS_CAT);
 
-    public final By FIRST_NEAR_YOU = By.xpath(WebLocators.FIRST_NEAR_YOU);
-    public final By FIRST_SPORTS = By.xpath(WebLocators.FIRST_SPORTS);
-    public final By FIRST_GAMING = By.xpath(WebLocators.FIRST_GAMING);
-    public final By FIRST_NEW = By.xpath(WebLocators.FIRST_NEW);
+    private final By FIRST_NEAR_YOU = By.xpath(WebLocators.FIRST_NEAR_YOU);
+    private final By FIRST_SPORTS = By.xpath(WebLocators.FIRST_SPORTS);
+    private final By FIRST_GAMING = By.xpath(WebLocators.FIRST_GAMING);
+    private final By FIRST_NEW = By.xpath(WebLocators.FIRST_NEW);
 
     public CategoryPage(WebDriver wDriver) {
         super(wDriver);
@@ -48,8 +48,8 @@ public class CategoryPage extends BasePage {
         webDriver.findElement(NEWS_CAT).click();
     }
 
-    public boolean isDivDisplayed(By locator) {
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    public boolean isElementDisplayed(String locator) {
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
         log.info("Waiting for Near you div to be displayed");
         if (webDriver.findElement(FIRST_SPORTS).isDisplayed()) {
             log.info("FIRST " + locator + " DIV IS DISPLAYED");
