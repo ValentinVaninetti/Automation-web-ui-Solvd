@@ -9,10 +9,10 @@ import org.testng.annotations.Test;
 public class CategoryPageTests extends BaseTest {
 
     @Test
-    public void enterCategoryNearYou() throws InterruptedException {
+    public void enterCategoryNearYou(){
         CategoryPage categoryPage = new CategoryPage(MyDriver.getWebDriver());
         categoryPage.navigateToCategory();
-        categoryPage.clickOnNearYouCategory();
+        categoryPage.clickOnCategoryButton(WebLocators.NEAR_YOU_CAT);
         Assert.assertTrue(categoryPage.isElementDisplayed(WebLocators.FIRST_NEAR_YOU), "OMG");
     }
 
@@ -20,7 +20,7 @@ public class CategoryPageTests extends BaseTest {
     public void enterCategorySports() {
         CategoryPage categoryPage = new CategoryPage(MyDriver.getWebDriver());
         categoryPage.navigateToCategory();
-        categoryPage.clickOnSportsCategory();
+        categoryPage.clickOnCategoryButton(WebLocators.SPORT_CAT);
         Assert.assertTrue(categoryPage.isElementDisplayed(WebLocators.FIRST_SPORTS), "OMG");
     }
 
@@ -28,7 +28,7 @@ public class CategoryPageTests extends BaseTest {
     public void enterCategoryGaming() {
         CategoryPage categoryPage = new CategoryPage(MyDriver.getWebDriver());
         categoryPage.navigateToCategory();
-        categoryPage.clickOnGamingCategory();
+        categoryPage.clickOnCategoryButton(WebLocators.GAMING_CAT);
         Assert.assertTrue(categoryPage.isElementDisplayed(WebLocators.FIRST_GAMING), "OMG");
     }
 
@@ -36,7 +36,7 @@ public class CategoryPageTests extends BaseTest {
     public void enterCategoryNews() {
         CategoryPage categoryPage = new CategoryPage(MyDriver.getWebDriver());
         categoryPage.navigateToCategory();
-        categoryPage.clickOnNewsCategory();
+        categoryPage.clickOnCategoryButton(WebLocators.NEWS_CAT);
         Assert.assertTrue(categoryPage.isElementDisplayed(WebLocators.FIRST_NEW), "OMG");
     }
 }
