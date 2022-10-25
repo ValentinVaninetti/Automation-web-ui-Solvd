@@ -28,9 +28,9 @@ source: [https://github.com/allure-framework/allure2](https://github.com/allure-
 9. **Restart Jenkins**
 10. **Configure allure reports**
 
-### 1st Step: r**register on Jenkins (optional)**
+### 1st Step: register on Jenkins (optional)**
 
-<img HTML src="https://juanpg.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ffa407619-6c4b-4401-a7c6-35dd01578884%2Fjenkins_signup.png?table=block&id=ae228125-d292-4228-8138-2a49cd72bf95&spaceId=93abeace-b278-48fc-b54d-36c0272960d3&width=1340&userId=&cache=v2"/>
+<img src="https://juanpg.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ffa407619-6c4b-4401-a7c6-35dd01578884%2Fjenkins_signup.png?table=block&id=ae228125-d292-4228-8138-2a49cd72bf95&spaceId=93abeace-b278-48fc-b54d-36c0272960d3&width=1340&userId=&cache=v2"/>
 
 ### 2nd Step: download Jenkins
 
