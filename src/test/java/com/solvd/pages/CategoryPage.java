@@ -1,6 +1,6 @@
 package com.solvd.pages;
 
-import static com.solvd.utils.Constants.REDDIT_CATEGORY_PAGE
+import static com.solvd.utils.Constants.REDDIT_CATEGORY_PAGE;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
