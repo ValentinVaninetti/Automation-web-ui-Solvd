@@ -15,11 +15,7 @@ public class CoinsPage extends BasePage {
 
     public boolean isButtonCoinDisplayed() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(BUTTON_COINS));
-        if (webDriver.findElement(BUTTON_COINS).isDisplayed()) {
-            return true;
-        } else {
-            return false;
-        }
+        return webDriver.findElement(BUTTON_COINS).isDisplayed();
     }
 }
 

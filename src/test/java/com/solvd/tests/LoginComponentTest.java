@@ -5,6 +5,7 @@ import com.solvd.pages.components.LoginComponent;
 import com.solvd.utils.Constants;
 import com.solvd.utils.MyDriver;
 import com.solvd.utils.MyScreenRecorder;
+import com.solvd.utils.WebLocators;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -30,7 +31,7 @@ public class LoginComponentTest extends BaseTest {
         MyDriver.getWebDriver().switchTo().activeElement();
         loginComponent.setUsername(username);
         loginComponent.setPassword(password);
-        loginComponent.clickLoginSession();
+        loginComponent.clickOnButtonByCss(WebLocators.BUTTON_LOGIN_SESSION);
         Assert.assertEquals(loginComponent.getUsername(), "automation_test");
     }
 
@@ -39,9 +40,9 @@ public class LoginComponentTest extends BaseTest {
         HomePage homePage = new HomePage(MyDriver.getWebDriver());
         this.navigateTo(Constants.REDDIT_HOME_PAGE);
         LoginComponent loginComponent = new LoginComponent(MyDriver.getWebDriver());
-        loginComponent.clickRightAccountMenu();
+        loginComponent.clickOnButtonById(WebLocators.BUTTON_DROPDOWN_USER);
         MyDriver.getWebDriver().switchTo().activeElement();
-        loginComponent.clickLogoutButton();
+        loginComponent.clickOnButtonByXpath(WebLocators.BUTTON_LOGOUT);
         Assert.assertTrue(homePage.isLoginButtonDisplayed(), "Not logged in");
     }
 }

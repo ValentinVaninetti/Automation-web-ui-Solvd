@@ -20,6 +20,8 @@ public class HomePage extends BasePage {
     private final By HEADER_USER_DROPDOWN = By.className(WebLocators.HEADER_USER_DROPDOWN);
     private final By CHAT_BOX_DISPLAYED = By.xpath(WebLocators.CHAT_BOX_DISPLAYED);
 
+    private final By BUTTON_LOGIN_SESSION = By.cssSelector(WebLocators.BUTTON_LOGIN_SESSION);
+
     public HomePage(WebDriver wDriver) {
         super(wDriver);
     }
@@ -83,8 +85,8 @@ public class HomePage extends BasePage {
 
     public boolean isLoginComponentDisplayed() {
         clickLoginDiv();
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(LoginComponent.BUTTON_LOGIN_SESSION));
-        return webDriver.findElement(LoginComponent.BUTTON_LOGIN_SESSION).isDisplayed();
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(BUTTON_LOGIN_SESSION));
+        return webDriver.findElement(BUTTON_LOGIN_SESSION).isDisplayed();
     }
 
     public void clickLoginDiv() {

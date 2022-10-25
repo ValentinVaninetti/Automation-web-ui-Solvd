@@ -16,6 +16,5 @@ public class PremiumPage extends BasePage {
     public boolean isButtonPremiumDisplayed() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(BUTTON_PREMIUM));
         return webDriver.findElement(BUTTON_PREMIUM).isDisplayed();
-
     }
 }

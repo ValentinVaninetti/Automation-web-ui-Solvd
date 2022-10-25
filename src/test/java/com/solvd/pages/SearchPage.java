@@ -11,11 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SearchPage extends BasePage {
 
-    private By FIRST_COMMENT = By.xpath(WebLocators.FIRST_COMMENT_DIV);
-    private By ALL_COMMUNITIES = By.xpath(WebLocators.FIRST_COMMUNITIES_DIV);
-    private By ALL_POSTS = By.xpath(WebLocators.ALL_POSTS_DIVS);
-
-
     public SearchPage(WebDriver wDriver) {
         super(wDriver);
     }
@@ -46,18 +41,8 @@ public class SearchPage extends BasePage {
         webDriver.get(REDDIT_SEARCH_PAGE);
     }
 
-    public boolean isCommentDivDisplayed() {
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_COMMENT));
-        return webDriver.findElement(FIRST_COMMENT).isDisplayed();
-    }
-
-    public boolean isCommunitiesDivDisplayed() {
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(ALL_COMMUNITIES));
-        return webDriver.findElement(ALL_COMMUNITIES).isDisplayed();
-    }
-
-    public boolean isSearchPostDivDisplayed() {
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(ALL_POSTS));
-        return webDriver.findElement(ALL_POSTS).isDisplayed();
+    public boolean isElementDisplayed(String locator) {
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+        return webDriver.findElement(By.xpath(locator)).isDisplayed();
     }
 }

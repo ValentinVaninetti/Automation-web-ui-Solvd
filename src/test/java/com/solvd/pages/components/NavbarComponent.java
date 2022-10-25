@@ -56,22 +56,6 @@ public class NavbarComponent extends BasePage {
         webDriver.findElement(DROPDOWN_USER_REGISTER_OR_LOGIN).click();
     }
 
-    public void clickMoreButton() {
-        webDriver.findElement(DROPDOWN_USER_MORE_BUTTON).click();
-    }
-
-    public void clickRedditIosButton() {
-        webDriver.findElement(DROPDOWN_USER_MORE_IOS).click();
-    }
-
-    public void clickRedditAndroidButton() {
-        webDriver.findElement(DROPDOWN_USER_MORE_ANDROID).click();
-    }
-
-    public boolean checkPageTitle(String title) {
-        return title.equals(PAGE_TITLE);
-    }
-
     public CoinsPage clickCoinsButton() {
         webDriver.findElement(CLICK_COINS_BUTTON).click();
         return new CoinsPage(webDriver);
