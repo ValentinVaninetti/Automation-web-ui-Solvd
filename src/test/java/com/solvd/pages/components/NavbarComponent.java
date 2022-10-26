@@ -5,6 +5,7 @@ import com.solvd.pages.CoinsPage;
 import com.solvd.pages.PremiumPage;
 import com.solvd.pages.TalkPage;
 import com.solvd.utils.WebLocators;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -30,6 +31,11 @@ public class NavbarComponent extends BasePage {
 
     public NavbarComponent(WebDriver wDriver) {
         super(wDriver);
+    }
+
+    @Override
+    public Logger getLogger() {
+        return Logger.getLogger(this.getClass().getName());
     }
 
     public boolean isNavbarDisplayed() {

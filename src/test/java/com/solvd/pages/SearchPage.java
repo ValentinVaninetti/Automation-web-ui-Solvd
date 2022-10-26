@@ -3,7 +3,7 @@ package com.solvd.pages;
 import static com.solvd.utils.Constants.REDDIT_SEARCH_PAGE;
 
 import com.solvd.pages.components.CssComponent;
-import com.solvd.utils.WebLocators;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,6 +13,11 @@ public class SearchPage extends BasePage {
 
     public SearchPage(WebDriver wDriver) {
         super(wDriver);
+    }
+
+    @Override
+    public Logger getLogger() {
+        return Logger.getLogger(this.getClass().getName());
     }
 
     public void clickOnSearchComments() {

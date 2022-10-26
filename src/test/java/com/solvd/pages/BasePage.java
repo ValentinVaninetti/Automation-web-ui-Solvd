@@ -24,9 +24,7 @@ public abstract class BasePage {
         this.webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(120, 1));
     }
 
-    public static Logger getLogger(String className) {
-        return Logger.getLogger(className);
-    }
+    protected abstract Logger getLogger();
 
     public static String getClassName(Object className) {
         return className.getClass().getName();

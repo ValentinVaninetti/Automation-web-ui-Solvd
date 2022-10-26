@@ -7,6 +7,7 @@ import com.solvd.pages.components.PostComponent;
 import com.solvd.utils.Constants;
 import com.solvd.utils.MyDriver;
 import com.solvd.utils.WebLocators;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,11 @@ public class HomePage extends BasePage {
         super(wDriver);
     }
 
+    @Override
+    public Logger getLogger() {
+        return Logger.getLogger(this.getClass().getName());
+    }
+
 
     public LoginComponent clickOnLogin() {
         webDriver.findElement(LoginComponent.CSS_OPEN_LOGIN_BUTTON).click();
@@ -34,7 +40,7 @@ public class HomePage extends BasePage {
 
     public NavbarComponent clickOnUserDropdown() {
         if (webDriver.findElement(HEADER_USER_DROPDOWN).isDisplayed()) {
-            getLogger(HomePage.getClassName(this)).info("Clicking on Dropdown Button menu");
+            getLogger().info("Clicking on Dropdown Button menu");
             webDriver.findElement(HEADER_USER_DROPDOWN).click();
         }
         return new NavbarComponent(webDriver);
@@ -47,13 +53,13 @@ public class HomePage extends BasePage {
     }
 
     public boolean isRegisterOrLoginMenuDisplayed() {
-        getLogger(HomePage.getClassName(this)).info("Switching to frame and checking if login menu is displayed");
+        getLogger().info("Switching to frame and checking if login menu is displayed");
         webDriver.switchTo().frame(0);
         return webDriver.findElement(LoginComponent.LOGIN_MENU_DISPLAY).isDisplayed();
     }
 
     public void clickOnSearch() {
-        getLogger(HomePage.getClassName(this)).info("Clicking on search input");
+        getLogger().info("Clicking on search input");
         webDriver.findElement(CssComponent.CSS_SEARCH).click();
     }
 
@@ -72,7 +78,7 @@ public class HomePage extends BasePage {
     }
 
     public PostComponent clickFirstPost() {
-        getLogger(HomePage.getClassName(this)).info("Clicking on first post");
+        getLogger().info("Clicking on first post");
         webDriver.findElement(BUTTON_FIRST_POST).click();
         return new PostComponent(webDriver);
     }

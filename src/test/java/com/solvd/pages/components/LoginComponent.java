@@ -2,6 +2,7 @@ package com.solvd.pages.components;
 
 import com.solvd.pages.BasePage;
 import com.solvd.utils.WebLocators;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,6 +18,11 @@ public class LoginComponent extends BasePage {
 
     public LoginComponent(WebDriver wDriver) {
         super(wDriver);
+    }
+
+    @Override
+    public Logger getLogger() {
+        return Logger.getLogger(this.getClass().getName());
     }
 
     public void setUsername(String username) {
