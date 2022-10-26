@@ -1,5 +1,6 @@
 package com.solvd.pages.components;
 
+import com.solvd.interfaces.Icomponents.INavbarComponent;
 import com.solvd.pages.BasePage;
 import com.solvd.pages.CoinsPage;
 import com.solvd.pages.PremiumPage;
@@ -11,7 +12,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class NavbarComponent extends BasePage {
+public class NavbarComponent extends BasePage implements INavbarComponent {
 
     private final By BUTTON_DROPDOWN_USER = By.id(WebLocators.BUTTON_DROPDOWN_USER);
     private final By DROPDOWN_USER_MENU = By.xpath(WebLocators.DROPDOWN_USER_MENU);
@@ -38,40 +39,48 @@ public class NavbarComponent extends BasePage {
         return Logger.getLogger(this.getClass().getName());
     }
 
+    @Override
     public boolean isNavbarDisplayed() {
         return webDriver.findElement(BUTTON_DROPDOWN_USER).isDisplayed();
     }
 
+    @Override
     public void clickSettingsButton() {
         if (settingsBtn.isDisplayed()) {
             settingsBtn.click();
         }
     }
 
+    @Override
     public void clickDarkThemeButton() {
         if (darkTheme.isDisplayed()) {
             darkTheme.click();
         }
     }
 
+    @Override
     public void scrollDownNavbarMenu() {
         webDriver.findElement(DROPDOWN_USER_MENU).sendKeys(Keys.CONTROL, Keys.END);
     }
 
+    @Override
     public void clickRegisterOrLoginButton() {
         webDriver.findElement(DROPDOWN_USER_REGISTER_OR_LOGIN).click();
     }
 
+    @Override
     public CoinsPage clickCoinsButton() {
         webDriver.findElement(CLICK_COINS_BUTTON).click();
         return new CoinsPage(webDriver);
     }
 
+    @Override
     public PremiumPage clickPremiumButton() {
         webDriver.findElement(CLICK_PREMIUM_BUTTON).click();
         return new PremiumPage(webDriver);
     }
 
+    @Override
     public TalkPage clickTalkButton() {
         webDriver.findElement(CLICK_TALK_BUTTON).click();
         return new TalkPage(webDriver);

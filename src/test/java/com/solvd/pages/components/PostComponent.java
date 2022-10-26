@@ -1,5 +1,6 @@
 package com.solvd.pages.components;
 
+import com.solvd.interfaces.Icomponents.IPostComponent;
 import com.solvd.pages.BasePage;
 import com.solvd.utils.WebLocators;
 import org.apache.log4j.Logger;
@@ -8,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
-public class PostComponent extends BasePage {
+public class PostComponent extends BasePage implements IPostComponent {
 
     private final By SHARE_POST_BUTTON = By.xpath(WebLocators.SHARE_POST_BUTTON);
 
@@ -24,11 +25,13 @@ public class PostComponent extends BasePage {
         return Logger.getLogger(this.getClass().getName());
     }
 
+    @Override
     public void clickOnSharePost() {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(SHARE_POST_BUTTON)).click();
 
     }
 
+    @Override
     public void clickOnShareOnChat() {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(SHARE_TO_CHAT)).click();
     }
